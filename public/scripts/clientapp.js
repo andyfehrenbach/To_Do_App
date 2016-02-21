@@ -7,6 +7,7 @@ $(document).ready(function() {
 
   $('#submit-button').on('click', sendTask);
   $('#submit-button').on('click', closePopup);
+  $('.remove').on('click', deleteTask);
  });
 
  function showPopup () {
@@ -56,12 +57,16 @@ function getData() {
     }
   });
 }
+// function deleteTask () {
+//   $(this).
+// }
 //re-useable appendDom function ONLY WORKS WITH CLASSES
 
 function appendDom(data) {
   $('.taskList').empty();
   var $el = $('.taskList');
   for (var i = 0; i < data.length; i++) {
+
     $el.append('<div class="standardHeight lineItem task">' + '<li>' + data[i].task_name + '</li>' + '</div>').slideDown(600);
     $el.append('<div class="complete standardHeight lineItem">' + '<i class="material-icons">' + 'done' + '</i>' + '</div>').slideDown(600);
     $el.append('<div class="remove standardHeight lineItem">' + '<i class="material-icons">' + 'clear' + '</i>' + '</div>').slideDown(600);
