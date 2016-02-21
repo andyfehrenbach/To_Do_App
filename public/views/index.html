@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To do List</title>
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/stylesheet.css" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
+
+  <script type="text/javascript" src="/vendors/jquery.min.js"></script>
+  <script type="text/javascript" src="/scripts/clientapp.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="popup hidden">
+      <form class="taskInput">
+        <input type="text" id="task" name="task" value="Add Task.."/>
+
+        <button id="submit-button"> OK </button>
+      </form>
+    </div>
+
+    <header class="standardHeight">
+      <h1>To Do</h1>
+    </header>
+
+    <!-- <div class="addTask standardHeight">
+      <h2> Add New Task</h2>
+    </div> -->
+
+    <header class="standardHeight" id="tasks">
+      <h1>Tasks <i class="material-icons">add</i></h1>
+    </header>
+
+
+
+    <div class="taskList">
+    </div>
+
+  </div>
+
+</body>
+
+</html>

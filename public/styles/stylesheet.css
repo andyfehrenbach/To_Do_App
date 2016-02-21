@@ -1,0 +1,161 @@
+/*//color scheme:
+brown: hsl(284, 9%, 25%);
+red: hsl(3, 64%, 57%);
+tan: hsl(39, 26%, 76%);
+white: hsl(0, 11%, 96%)
+*/
+
+
+/*reset junk*/
+
+button {
+  margin: 0;
+  border: none;
+}
+
+/*global typography*/
+
+h1, h2, h3, h4, h5, h6, p, ul, li, form, input, label {
+  font-family: 'Verdana';
+  line-height: 63px;
+  text-align: center;
+  color: hsl(284, 9%, 25%);
+  -webkit-font-smoothing: antialiased;
+}
+h1 {
+  text-transform: uppercase;
+}
+li {
+  list-style-type: none;
+  padding-left: 2em;
+  text-align: left;
+  letter-spacing: .5px;
+  font-size: 18px;
+}
+.material-icons {
+  color: hsl(284, 9%, 25%);
+  text-align: center;
+  font-size: 36px;
+}
+
+/*standard height*/
+
+.standardHeight {
+  height: 4em;
+}
+.hidden {
+  display: none;
+}
+body {
+  background: hsl(3, 64%, 57%);
+  width: 100%;
+  height: 100%;
+}
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+header {
+  background: hsl(284, 9%, 25%);
+  width: 100% height: 4em;
+  margin: 0 auto;
+}
+h1 {
+  margin: 0;
+  color: hsl(39, 26%, 76%);
+}
+
+/*begin form styling*/
+
+input, button {
+  /*	display: block;*/
+  /*margin: .5em;*/
+  padding: .25em;
+  border: 1px solid #fff;
+  background: none;
+}
+.addTask {
+  width: 100%;
+  background: hsl(39, 26%, 76%);
+  cursor: pointer;
+}
+
+/*styling for the popup form*/
+
+.popup {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, .9);
+  z-index: 1;
+}
+.popup form {
+  width: 70%;
+}
+#task, #submit-button {
+  background-color: hsl(39, 26%, 76%);
+  font-size: 1.2em;
+  padding: 0;
+  border: none;
+  line-height: 55px;
+}
+#submit-button {
+  background-color: hsl(3, 64%, 57%);
+  border-radius: 0 8px 8px 0;
+  width: 10%;
+  margin-left: 0;
+}
+#submit-button:focus, #task:focus {
+  outline: none;
+}
+#submit-button:hover {
+  background-color: hsl(3, 64%, 50%);
+}
+#task {
+  width: 85%;
+  border-radius: 8px 0 0 8px;
+  margin-right: 0;
+  text-align: left;
+  padding-left: 1em;
+}
+
+/*end styling of popup form*/
+
+header .material-icons {
+  color: hsl(3, 64%, 57%);
+  margin: 14px;
+  float: right;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+/*styling for main list*/
+
+#tasks {
+  margin-top: 4em;
+}
+.lineItem {
+  line-height: 78px;
+  border-bottom: 2px solid grey;
+}
+.task {
+  width: 80%;
+  background: white;
+  margin-right: 0;
+  float: left;
+}
+.complete, .remove {
+  width: 10%;
+  background: white;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+.complete .material-icons:hover {
+  color: green;
+}
+.remove .material-icons:hover {
+  color: hsl(3, 64%, 57%);
+}
