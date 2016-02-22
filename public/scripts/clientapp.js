@@ -5,9 +5,7 @@ var taskData = [];
 $(document).ready(function() {
   getData();
   $('#tasks').on('click', showPopup);
-  $('#task').on('click', function () {
-    $(this).val('');
-  });
+
 
   $('#submit-button').on('click', sendTask);
   $('#submit-button').on('click', closePopup);
@@ -19,6 +17,9 @@ $(document).ready(function() {
    $('.popup').fadeIn(300);
    //center form:
    $('.taskInput').center();
+     $('#task').on('click', function () {
+       $(this).val('');
+     });
  }
 
  function closePopup() {
@@ -61,29 +62,51 @@ function deleteTask () {
 function completeTask () {
   $(this).parent().find('.lineItem').addClass('taskComplete');
   $elComplete = $(this).parent().find('.itemContainer');
-  // var x = $elComplete.data('id');
-  // taskData[x].task_complete = true;
+
+  var thisId = $(this).parent().attr('id');
+  console.log(thisId);
+  var newObj = {task_id: thisId};
+  //  var thisID = $(this).parent.data('id');
+  //  console.log(thisId);
+
   // console.log(taskData[x].task_complete);
-  // putData();
-$('.completedTasks').append($(this).parent());
+  putData(newObj);
+  $('.completedTasks').append($(this).parent());
 }
 
 
 function appendTasks(data) {
   $('.taskList').empty();
+
   for (var i = 0; i < data.length; i++) {
+    if (data[i].task_complete == false) {
     $('.taskList').append(
-      '<div class="itemContainer">'+
+      '<div class="itemContainer" id="' + data[i].id + '">' +
         '<div class="halfHeight lineItem task">' + '<li>' + data[i].task_name + '</li>' + '</div>'+
         '<div class="complete halfHeight lineItem">' + '<i class="material-icons">' + 'done' + '</i>' + '</div>' +
         '<div class="remove halfHeight lineItem">' + '<i class="material-icons">' + 'clear' + '</i>' + '</div>' +
       '</div>');
 
     $('.itemContainer').data('id', data[i].id);
-
+}
   }
   $('.taskList').append('<div class="completedTasks"></div>');
   $('.taskList').children().last().append('<header class="standardHeight completeTask marginTop"><h1>Completed Tasks</h1></header>');
+
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].task_complete == true){
+      $('.taskList').children().last().append(
+        '<div class="itemContainer" id="' + data[i].id + '">' +
+          '<div class="halfHeight lineItem task taskComplete">' + '<li>' + data[i].task_name + '</li>' + '</div>'+
+          '<div class="complete halfHeight lineItem taskComplete">' + '<i class="material-icons green">' + 'done' + '</i>' + '</div>' +
+          '<div class="remove halfHeight lineItem taskComplete">' + '<i class="material-icons">' + 'clear' + '</i>' + '</div>' +
+        '</div>');
+
+      $('.itemContainer').data('id', data[i].id);
+
+    }
+
+}
 }
 
 function postData () {
@@ -99,14 +122,15 @@ function postData () {
     });
 }
 
-function putData () {
+function putData (newObj) {
   $.ajax({
       type: 'PUT',
       url: '/task_data/complete',
-      data: values.task_complete,
+      data: newObj,
       success: function(data) {
-        console.log('form server: task complete ' + values.task_name);
-         getData(data);
+
+
+        //  getData(data);
       }
 
     });

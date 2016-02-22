@@ -197,3 +197,7 @@ header .material-icons {
   background-color: hsl(158, 48%, 69%);
   border-bottom: 2px solid hsl(284, 9%, 25%);
 }
+
+.green {
+  color: hsl(158, 48%, 69%);
+}

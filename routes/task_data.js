@@ -33,28 +33,21 @@ router.post('/', function (req, res){
     });
   });
 
-  // router.put('/complete', function (req, res){
-  //
-  //   var updateComplete = req.body.task_complete;
-  //   var id = req.body.id;
-  //
-  //   console.log(updateComplete);
-  //   console.log(id);
-  //
-  //   pg.connect(connectionString, function(err, client) {
-  //       client.query('UPDATE tasks SET task_complete = ($1) WHERE id = ($2)',
-  //       [updateComplete, id],
-  //         function(err, result, done) {
-  //           if (err) {
-  //             console.log('error inserting data: ', err);
-  //             res.send(false);
-  //           } else {
-  //             res.send(result);
-  //           }
-  //         });
-  //     });
-  //   });
-  //
+  router.put('/complete', function (req, res){
+  console.log(req.body);
+    pg.connect(connectionString, function(err, client) {
+        client.query('UPDATE tasks SET task_complete = TRUE WHERE id =' + req.body.task_id,
+          function(err, result, done) {
+            if (err) {
+              console.log('error inserting data: ', err);
+              res.send(false);
+            } else {
+              res.send(result);
+            }
+          });
+      });
+    });
+
 
 ///handle a get
 router.get('/', function(req, res) {
