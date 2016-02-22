@@ -60,7 +60,7 @@ li {
   display: none;
 }
 body {
-  background-image: linear-gradient(to bottom, hsl(3, 64%, 57%), hsla(2,64%,51%,1)), url("/img/noisy-texture-100x100-o5-d10-c-dfe3eb-t1.png");
+  background-image: linear-gradient(to bottom, hsl(3, 64%, 57%), hsl(3,64%,58%)), url("/img/noisy-texture-100x100-o5-d10-c-dfe3eb-t1.png");
   background-blend-mode: multiply;
   width: 100%;
   height: 100%;
