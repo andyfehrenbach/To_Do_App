@@ -28,6 +28,7 @@ h1 {
   font-size: 36px;
     margin: 0;
     color: hsl(39, 26%, 76%);
+    text-shadow: -2px 2px hsla(284,9%,17%,1);
 }
 
 li {
@@ -36,6 +37,7 @@ li {
   text-align: left;
   letter-spacing: .5px;
   font-size: 18px;
+  line-height: 52px;
 }
 
 .material-icons {
@@ -49,23 +51,40 @@ li {
 .standardHeight {
   height: 4em;
 }
+
+.halfHeight {
+  height: 3em;
+}
+
 .hidden {
   display: none;
 }
 body {
-  background: hsl(3, 64%, 57%);
+  background-image: linear-gradient(to bottom, hsl(3, 64%, 57%), hsla(2,64%,51%,1)), url("/img/noisy-texture-100x100-o5-d10-c-dfe3eb-t1.png");
+  background-blend-mode: multiply;
   width: 100%;
   height: 100%;
+
 }
 .wrapper {
   width: 80%;
   margin: 0 auto;
+  max-width: 750px;
 }
 header {
-  background: hsl(284, 9%, 25%);
+  background-image: linear-gradient( to right, hsl(284, 9%, 20%), hsl(284, 9%, 25%), hsl(284, 9%, 20%) ), url("/img/noisy-texture-100x100-o5-d10-c-dfe3eb-t1.png");
   width: 100% height: 4em;
   margin: 0 auto;
+  background-blend-mode: multiply;
+
 }
+
+.toDo {
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0px 4px hsla(284,9%,20%,1);
+}
+
+
 
 
 /*begin form styling*/
@@ -121,6 +140,7 @@ input, button {
   border-radius: 8px 0 0 8px;
   margin-right: 0;
   text-align: left;
+  padding-left: 1em;
 }
 
 
@@ -129,21 +149,24 @@ input, button {
 
 header .material-icons {
   color: hsl(3, 64%, 57%);
-  margin: 14px;
+  margin: 14px 17px;
   float: right;
   font-size: 36px;
   cursor: pointer;
+  text-shadow: none;
 }
 
 /*styling for main list*/
 
 .marginTop {
   margin-top: 4em;
+  border-radius: 8px 8px 0 0;
+  box-shadow: inset 0 -3px hsla(284,9%,20%,1);
 }
 .lineItem {
-  line-height: 78px;
-  border-bottom: 2px solid grey;
-  background: hsl(0, 11%, 96%);
+  line-height: 66px;
+  border-bottom: 2px solid #ddd;
+  background-color:  hsl(0, 11%, 96%);
 }
 .task {
   width: 80%;
@@ -162,7 +185,7 @@ header .material-icons {
   text-align: center;
 }
 .complete .material-icons:hover {
-  color: green;
+  color: hsl(158, 49%, 70%);
 }
 .remove .material-icons:hover {
   color: hsl(3, 64%, 57%);
@@ -171,6 +194,6 @@ header .material-icons {
 /*///*/
 
 .taskComplete{
-  background-color: hsl(158, 49%, 70%);
-  border: none;
+  background-color: hsl(158, 48%, 69%);
+  border-bottom: 2px solid hsl(284, 9%, 25%);
 }

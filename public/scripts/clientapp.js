@@ -1,5 +1,5 @@
 var values = {};
-var taskData = [];
+
 
 $(document).ready(function() {
   getData();
@@ -47,20 +47,18 @@ function getData() {
     success: function(data) {
       console.log(data);
       appendTasks(data);
-      taskData.push(data);
-      console.log(taskData);
+      values = data;
+      console.log(values);
     }
   });
 }
 
 function deleteTask () {
-  var lineItem = $(this).task_name;
-  console.log(lineItem);
     $(this).parent().slideUp(100);
 }
 
 function completeTask () {
-  $(this).parent().find('.lineItem').toggleClass('taskComplete');
+  $(this).parent().find('.lineItem').addClass('taskComplete');
   $elComplete = $(this).parent().find('.itemContainer');
   // var x = $elComplete.data('id');
   // taskData[x].task_complete = true;
@@ -75,12 +73,12 @@ function appendTasks(data) {
   for (var i = 0; i < data.length; i++) {
     $('.taskList').append(
       '<div class="itemContainer">'+
-        '<div class="standardHeight lineItem task">' + '<li>' + data[i].task_name + '</li>' + '</div>'+
-        '<div class="complete standardHeight lineItem">' + '<i class="material-icons">' + 'done' + '</i>' + '</div>' +
-        '<div class="remove standardHeight lineItem">' + '<i class="material-icons">' + 'clear' + '</i>' + '</div>' +
+        '<div class="halfHeight lineItem task">' + '<li>' + data[i].task_name + '</li>' + '</div>'+
+        '<div class="complete halfHeight lineItem">' + '<i class="material-icons">' + 'done' + '</i>' + '</div>' +
+        '<div class="remove halfHeight lineItem">' + '<i class="material-icons">' + 'clear' + '</i>' + '</div>' +
       '</div>');
 
-      $('.itemContainer').data('id', data[i].id);
+    $('.itemContainer').data('id', data[i].id);
 
   }
   $('.taskList').append('<div class="completedTasks"></div>');
