@@ -70,5 +70,19 @@ router.get('/', function(req, res) {
     });
 });
 
+router.delete('/delete', function (req, res){
+console.log(req.body);
+  pg.connect(connectionString, function(err, client) {
+      client.query('DELETE FROM tasks WHERE id =' + req.body.task_id,
+        function(err, result, done) {
+          if (err) {
+            console.log('error inserting data: ', err);
+            res.send(false);
+          } else {
+            res.send(result);
+          }
+        });
+    });
+  });
 
 module.exports = router;

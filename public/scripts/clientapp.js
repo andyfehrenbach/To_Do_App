@@ -56,8 +56,29 @@ function getData() {
 }
 
 function deleteTask () {
-    $(this).parent().slideUp(100);
+  var $el = $(this).parent();
+  var thisId = $(this).parent().attr('id');
+  console.log(thisId);
+  var newObj = {task_id: thisId};
+  console.log(newObj);
+  deleteData(newObj, $el);
+
 }
+
+      function deleteData(newObj, $el) {
+        $.ajax({
+          type: 'DELETE',
+          url:'/task_data/delete',
+          data: newObj,
+          success: function (data) {
+            console.log('it worked');
+              $el.slideUp(100);
+          }
+        });
+      }
+
+
+
 
 function completeTask () {
   $(this).parent().find('.lineItem').addClass('taskComplete');
