@@ -24,7 +24,12 @@ h1, h2, h3, h4, h5, h6, p, ul, li, form, input, label {
 }
 h1 {
   text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 36px;
+    margin: 0;
+    color: hsl(39, 26%, 76%);
 }
+
 li {
   list-style-type: none;
   padding-left: 2em;
@@ -32,6 +37,7 @@ li {
   letter-spacing: .5px;
   font-size: 18px;
 }
+
 .material-icons {
   color: hsl(284, 9%, 25%);
   text-align: center;
@@ -60,10 +66,7 @@ header {
   width: 100% height: 4em;
   margin: 0 auto;
 }
-h1 {
-  margin: 0;
-  color: hsl(39, 26%, 76%);
-}
+
 
 /*begin form styling*/
 
@@ -118,8 +121,9 @@ input, button {
   border-radius: 8px 0 0 8px;
   margin-right: 0;
   text-align: left;
-  padding-left: 1em;
 }
+
+
 
 /*end styling of popup form*/
 
@@ -133,22 +137,26 @@ header .material-icons {
 
 /*styling for main list*/
 
-#tasks {
+.marginTop {
   margin-top: 4em;
 }
 .lineItem {
   line-height: 78px;
   border-bottom: 2px solid grey;
+  background: hsl(0, 11%, 96%);
 }
 .task {
   width: 80%;
-  background: white;
   margin-right: 0;
   float: left;
 }
+
+#tasks h1 {
+  padding-left: 2em;
+}
+
 .complete, .remove {
   width: 10%;
-  background: white;
   display: inline-block;
   cursor: pointer;
   text-align: center;
@@ -158,4 +166,11 @@ header .material-icons {
 }
 .remove .material-icons:hover {
   color: hsl(3, 64%, 57%);
+}
+
+/*///*/
+
+.taskComplete{
+  background-color: hsl(158, 49%, 70%);
+  border: none;
 }
