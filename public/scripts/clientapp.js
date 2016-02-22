@@ -1,4 +1,5 @@
 var values = {};
+var taskData = [];
 
 
 $(document).ready(function() {
@@ -47,8 +48,8 @@ function getData() {
     success: function(data) {
       console.log(data);
       appendTasks(data);
-      values = data;
-      console.log(values);
+      taskData.push(data);
+      console.log(taskData);
     }
   });
 }
